@@ -16,7 +16,7 @@ class SunriseBench
 
 	public function init()
 	{
-		$uri = \sprintf('/route/%d', $this->maxRoutes);
+		$uri = \sprintf('/route/%d', \floor($this->maxRoutes / 2));
 
 		$this->request = (new ServerRequestFactory)
 		->createServerRequest('GET', $uri);
@@ -28,17 +28,16 @@ class SunriseBench
 	 */
 	public function benchSunriseMatch()
 	{
-		$map = new RouteCollection();
+		$routes = new RouteCollection();
 
 		for ($i = 1; $i <= $this->maxRoutes; $i++)
 		{
-			$id = \sprintf('route:%d', $i);
-
-			// Усложним себе задачу...
-			$map->get($id, '/route/{i}')->addPattern('i', "{$i}");
+			$routes->get("route:{$i}", "/route/{$i}");
 		}
 
-		$router = new Router($map);
+		$router = new Router();
+		$router->addRoutes($routes);
+
 		$router->match($this->request);
 	}
 }

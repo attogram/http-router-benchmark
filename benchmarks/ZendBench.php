@@ -16,7 +16,7 @@ class ZendBench
 
 	public function init()
 	{
-		$uri = \sprintf('/route/%d', $this->maxRoutes);
+		$uri = \sprintf('/route/%d', \floor($this->maxRoutes / 2));
 
 		$this->request = (new ServerRequestFactory)
 		->createServerRequest('GET', $uri);
@@ -32,16 +32,13 @@ class ZendBench
 
 		for ($i = 1; $i <= $this->maxRoutes; $i++)
 		{
-			$id = \sprintf('route:%d', $i);
-			$path = \sprintf('/route/%d', $i);
-
 			/**
 			 * @link https://github.com/zendframework/zend-expressive-zendrouter/blob/master/src/ZendRouter.php
 			 */
-			$router->addRoute($id, [
+			$router->addRoute("route:{$i}", [
 				'type' => 'segment',
 				'options' => [
-					'route' => $path,
+					'route' => "/route/{$i}",
 				],
 				'may_terminate' => false,
 				'child_routes' => [
@@ -57,7 +54,7 @@ class ZendBench
 						'options' => [
 							'regex' => '',
 							'defaults' => [
-								'method_not_allowed' => $path,
+								'method_not_allowed' => "/route/{$i}",
 							],
 							'spec' => '',
 						],

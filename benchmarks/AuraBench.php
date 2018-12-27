@@ -15,7 +15,7 @@ class AuraBench
 
 	public function init()
 	{
-		$uri = \sprintf('/route/%d', $this->maxRoutes);
+		$uri = \sprintf('/route/%d', \floor($this->maxRoutes / 2));
 
 		$this->request = (new ServerRequestFactory)
 		->createServerRequest('GET', $uri);
@@ -33,11 +33,7 @@ class AuraBench
 
 		for ($i = 1; $i <= $this->maxRoutes; $i++)
 		{
-			$id = \sprintf('route:%d', $i);
-			$path = \sprintf('/route/%d', $i);
-			$action = function() {};
-
-			$map->get($id, $path, $action);
+			$map->get("route:{$i}", "/route/{$i}", function() {});
 		}
 
 		$matcher = $routerContainer->getMatcher();

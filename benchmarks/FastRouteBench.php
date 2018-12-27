@@ -18,7 +18,7 @@ class FastRouteBench
 
 	public function init()
 	{
-		$uri = \sprintf('/route/%d', $this->maxRoutes);
+		$uri = \sprintf('/route/%d', \floor($this->maxRoutes / 2));
 
 		$this->request = (new ServerRequestFactory)
 		->createServerRequest('GET', $uri);
@@ -37,10 +37,7 @@ class FastRouteBench
 
 		for ($i = 1; $i <= $this->maxRoutes; $i++)
 		{
-			$path = \sprintf('/route/%d', $i);
-			$action = function() {};
-
-			$map->get($path, $action);
+			$map->get("/route/{$i}", function() {});
 		}
 
 		$dispatcher = new Dispatcher($map->getData());
