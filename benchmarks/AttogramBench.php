@@ -29,11 +29,12 @@ class AttogramBench
 	 */
 	public function benchAttogramMatch()
 	{
-		$router = new Router;
-		for ($i = 1; $i <= $this->maxRoutes; $i++)
-		{
-			$router->allow("/$i/", $i);
+		$router = new Router();
+
+		for ($i = 1; $i <= $this->maxRoutes; $i++) {
+			$router->allow("/route/$i/", $i);
 		}
-		$match = $router->match();
+
+		$router->match();
 	}
 }

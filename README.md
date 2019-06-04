@@ -1,6 +1,25 @@
-## Benchmark (1k iterations with 1k routes)
+# http-router-benchmark
+
+Benchmark (1k iterations with 1k routes)
 
 ```
++---------------------+------+--------------+--------+
+| benchAttogramMatch  | 1000 | 1,007.592μs  | 1.00x  |
+| benchSunriseMatch   | 1000 | 2,922.666μs  | 2.90x  |
+| benchFastRouteMatch | 1000 | 3,289.040μs  | 3.26x  |
+| benchAuraMatch      | 1000 | 5,832.127μs  | 5.79x  |
+| benchZendMatch      | 1000 | 18,620.681μs | 18.48x |
++---------------------+------+--------------+--------+
+
++---------------------+------+--------------+-------+
+| subject             | its  | mean         | diff  |
++---------------------+------+--------------+-------+
+| benchSunriseMatch   | 1000 | 3,285.527μs  | 1.00x |
+| benchFastRouteMatch | 1000 | 3,424.920μs  | 1.04x |
+| benchAuraMatch      | 1000 | 5,727.049μs  | 1.74x |
+| benchZendMatch      | 1000 | 19,213.987μs | 5.85x |
++---------------------+------+--------------+-------+
+
 +---------------------+------+--------------+-------+
 | subject             | its  | mean         | diff  |
 +---------------------+------+--------------+-------+
@@ -13,19 +32,19 @@
 
 ## Installation
 
-#### Cloning the repository
+* Clone the repository
 
 ```bash
 git clone git@github.com:sunrise-php/http-router-benchmark.git
 ```
 
-#### Installing dependencies
+* Install dependencies
 
 ```bash
 composer install
 ```
 
-## Benchmark run
+## Run Benchmark
 
 unix:
 
