@@ -27,6 +27,14 @@ composer install
 
 ## Benchmark run
 
+unix:
+
 ```bash
 php vendor/bin/phpbench run --report='generator: "table", cols: ["subject", "its", "mean", "diff"], sort: {mean: "asc"}'
+```
+
+windows:
+
+```
+vendor\bin\phpbench.bat run --report="generator: "table", cols: ["subject", "its", "mean", "diff"], sort: {mean: "asc"}"
 ```
