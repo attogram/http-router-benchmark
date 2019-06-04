@@ -1,7 +1,6 @@
 {
     "path": "benchmarks",
     "bootstrap": "vendor/autoload.php",
-    "retry_threshold": 20,
     "reports": {
         "routers": {
             "extends": "aggregate",

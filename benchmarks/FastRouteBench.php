@@ -21,7 +21,7 @@ class FastRouteBench extends RouterBenchmark
 	 * @Warmup(1)
 	 * @Iterations(1000)
 	 */
-	public function benchFastRouteMatch()
+	public function benchFastRoute()
 	{
 		$map = new RouteCollector(new RouteParser(), new DataGenerator());
 		for ($i = 1; $i <= $this->maxRoutes; $i++) {

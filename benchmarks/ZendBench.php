@@ -21,7 +21,7 @@ class ZendBench extends RouterBenchmark
      *
      * @link https://github.com/zendframework/zend-expressive-zendrouter/blob/master/src/ZendRouter.php
 	 */
-	public function benchZendMatch()
+	public function benchZend()
 	{
 		$router = new TreeRouteStack();
 		for ($i = 1; $i <= $this->maxRoutes; $i++) {

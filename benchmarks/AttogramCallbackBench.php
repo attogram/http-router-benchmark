@@ -1,7 +1,7 @@
 <?php
 /**
  * Router Benchmark
- * Attogram Router
+ * Attogram Router - Callback Control
  */
 declare(strict_types = 1);
 
@@ -12,17 +12,17 @@ use Attogram\Router\Router;
 /**
  * @BeforeMethods({"init"})
  */
-class AttogramBench extends RouterBenchmark
+class AttogramCallbackBench extends RouterBenchmark
 {
 	/**
 	 * @Warmup(1)
 	 * @Iterations(1000)
 	 */
-	public function benchAttogramMatch()
+	public function benchAttogramCallback()
 	{
 		$router = new Router();
 		for ($i = 1; $i <= $this->maxRoutes; $i++) {
-			$router->allow("/route/$i/", $i); // integer control
+			$router->allow("/route/$i/", function() {}); // callback control
 		}
 		$router->match();
 	}

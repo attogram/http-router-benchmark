@@ -18,7 +18,7 @@ class AuraBench extends RouterBenchmark
 	 * @Warmup(1)
 	 * @Iterations(1000)
 	 */
-	public function benchAuraMatch()
+	public function benchAura()
 	{
 		$routerContainer = new RouterContainer();
 		$map = $routerContainer->getMap();

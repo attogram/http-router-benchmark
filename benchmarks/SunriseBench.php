@@ -19,7 +19,7 @@ class SunriseBench extends RouterBenchmark
 	 * @Warmup(1)
 	 * @Iterations(1000)
 	 */
-	public function benchSunriseMatch()
+	public function benchSunrise()
 	{
 		$routes = new RouteCollection();
 		for ($i = 1; $i <= $this->maxRoutes; $i++) {
