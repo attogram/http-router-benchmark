@@ -1,28 +1,19 @@
 <?php
+/**
+ * Router Benchmark
+ * Attogram Router
+ */
+declare(strict_types = 1);
 
 namespace Sunrise\Http\Router\Benchs;
 
 use Attogram\Router\Router;
-use Sunrise\Http\ServerRequest\ServerRequestFactory;
-
-use function floor;
-use function sprintf;
 
 /**
  * @BeforeMethods({"init"})
  */
-class AttogramBench
+class AttogramBench extends RouterBenchmark
 {
-	protected $maxRoutes = 1000;
-	protected $request;
-
-	public function init()
-	{
-		$uri = sprintf('/route/%d', floor($this->maxRoutes / 2));
-
-		$this->request = (new ServerRequestFactory)->createServerRequest('GET', $uri);
-	}
-
 	/**
 	 * @Warmup(1)
 	 * @Iterations(1000)
@@ -30,11 +21,9 @@ class AttogramBench
 	public function benchAttogramMatch()
 	{
 		$router = new Router();
-
 		for ($i = 1; $i <= $this->maxRoutes; $i++) {
-			$router->allow("/route/$i/", $i);
+			$router->allow("/route/$i/", $i); // integer control
 		}
-
 		$router->match();
 	}
 }

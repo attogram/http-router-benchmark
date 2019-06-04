@@ -1,40 +1,30 @@
 <?php
+/**
+ * Router Benchmark
+ * Zend Router
+ */
+declare(strict_types = 1);
 
 namespace Sunrise\Http\Router\Benchs;
 
-use Sunrise\Http\ServerRequest\ServerRequestFactory;
 use Zend\Psr7Bridge\Psr7ServerRequest;
 use Zend\Router\Http\TreeRouteStack;
 
 /**
  * @BeforeMethods({"init"})
  */
-class ZendBench
+class ZendBench extends RouterBenchmark
 {
-	protected $maxRoutes = 1000;
-	protected $request;
-
-	public function init()
-	{
-		$uri = \sprintf('/route/%d', \floor($this->maxRoutes / 2));
-
-		$this->request = (new ServerRequestFactory)
-		->createServerRequest('GET', $uri);
-	}
-
 	/**
 	 * @Warmup(1)
 	 * @Iterations(1000)
+     *
+     * @link https://github.com/zendframework/zend-expressive-zendrouter/blob/master/src/ZendRouter.php
 	 */
 	public function benchZendMatch()
 	{
 		$router = new TreeRouteStack();
-
-		for ($i = 1; $i <= $this->maxRoutes; $i++)
-		{
-			/**
-			 * @link https://github.com/zendframework/zend-expressive-zendrouter/blob/master/src/ZendRouter.php
-			 */
+		for ($i = 1; $i <= $this->maxRoutes; $i++) {
 			$router->addRoute("route:{$i}", [
 				'type' => 'segment',
 				'options' => [
@@ -62,7 +52,6 @@ class ZendBench
 				],
 			]);
 		}
-
 		$router->match(Psr7ServerRequest::toZend($this->request, true));
 	}
 }

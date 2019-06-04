@@ -15,28 +15,26 @@ PHP Router Benchmarks.
 
 ## Installation
 
-* Clone the repository
-
-```bash
-git clone git@github.com:sunrise-php/http-router-benchmark.git
 ```
+# Clone repository
+git clone git@github.com:sunrise-php/http-router-benchmark.git
 
-* Install dependencies
-
-```bash
+# Install dependecies
 composer install
 ```
 
-## Run Benchmark
+## Run Benchmarks
 
 unix:
 
 ```bash
-php vendor/bin/phpbench run --report='generator: "table", cols: ["subject", "its", "mean", "diff"], sort: {mean: "asc"}'
+php vendor/bin/phpbench run --report=routers --iterations=1000
 ```
 
 windows:
 
 ```
-vendor\bin\phpbench.bat run --report="generator: "table", cols: ["subject", "its", "mean", "diff"], sort: {mean: "asc"}"
+vendor\bin\phpbench.bat run --report=routers --iterations=1000
 ```
+
+* see <https://phpbench.readthedocs.io/>

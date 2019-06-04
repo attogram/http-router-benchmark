@@ -9,5 +9,10 @@
         "zendframework/zend-psr7bridge": "^1.2",
         "zendframework/zend-router": "^3.2",
         "attogram/router": "^4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sunrise\\Http\\Router\\Benchs\\": "src/"
+        }
     }
 }

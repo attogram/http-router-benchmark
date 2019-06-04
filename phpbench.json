@@ -1,4 +1,16 @@
 {
     "path": "benchmarks",
-    "bootstrap": "vendor/autoload.php"
+    "bootstrap": "vendor/autoload.php",
+    "retry_threshold": 20,
+    "reports": {
+        "routers": {
+            "extends": "aggregate",
+            "title": "routers",
+            "description": "PHP Router Benchmarks",
+            "cols": ["subject", "its", "mean", "diff"],
+            "sort": {
+                "mean": "asc"
+            }
+        }
+    }
 }
