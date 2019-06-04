@@ -4,6 +4,8 @@ Benchmark (1k iterations with 1k routes)
 
 ```
 +---------------------+------+--------------+--------+
+| subject             | its  | mean         | diff   |
++---------------------+------+--------------+--------+
 | benchAttogramMatch  | 1000 | 1,007.592μs  | 1.00x  |
 | benchSunriseMatch   | 1000 | 2,922.666μs  | 2.90x  |
 | benchFastRouteMatch | 1000 | 3,289.040μs  | 3.26x  |
