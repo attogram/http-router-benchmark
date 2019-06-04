@@ -1,36 +1,17 @@
 # http-router-benchmark
 
-Benchmark (1k iterations with 1k routes)
+PHP Router Benchmarks.
 
-```
-+---------------------+------+--------------+--------+
-| subject             | its  | mean         | diff   |
-+---------------------+------+--------------+--------+
-| benchAttogramMatch  | 1000 | 1,007.592μs  | 1.00x  |
-| benchSunriseMatch   | 1000 | 2,922.666μs  | 2.90x  |
-| benchFastRouteMatch | 1000 | 3,289.040μs  | 3.26x  |
-| benchAuraMatch      | 1000 | 5,832.127μs  | 5.79x  |
-| benchZendMatch      | 1000 | 18,620.681μs | 18.48x |
-+---------------------+------+--------------+--------+
+* [docs](docs/)
+* [example results](docs/results.md)
 
-+---------------------+------+--------------+-------+
-| subject             | its  | mean         | diff  |
-+---------------------+------+--------------+-------+
-| benchSunriseMatch   | 1000 | 3,285.527μs  | 1.00x |
-| benchFastRouteMatch | 1000 | 3,424.920μs  | 1.04x |
-| benchAuraMatch      | 1000 | 5,727.049μs  | 1.74x |
-| benchZendMatch      | 1000 | 19,213.987μs | 5.85x |
-+---------------------+------+--------------+-------+
+## Routers
 
-+---------------------+------+--------------+-------+
-| subject             | its  | mean         | diff  |
-+---------------------+------+--------------+-------+
-| benchSunriseMatch   | 1000 | 17,856.609μs | 1.00x |
-| benchFastRouteMatch | 1000 | 20,920.968μs | 1.17x |
-| benchAuraMatch      | 1000 | 44,480.588μs | 2.49x |
-| benchZendMatch      | 1000 | 96,778.725μs | 5.42x |
-+---------------------+------+--------------+-------+
-```
+* [attogram/router](https://github.com/attogram/router)
+* [aura/router](https://github.com/aura/router)
+* [nikic/fast-route](https://github.com/nikic/fast-route)
+* [sunrise/http-router](https://github.com/sunrise/http-router)
+* [zendframework/zend-router](https://github.com/zendframework/zend-router)
 
 ## Installation
 
